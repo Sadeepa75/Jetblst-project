@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JetBlast Badminton Store - Premium Equipment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #2F5E3D;
+            --light-green: #4a7d59;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --nav-green: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            background-image: url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            z-index: -1;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--nav-green);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .logo-img {
+            height: 90px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            margin: 0;
+            position: relative;
+            flex: 2;
+            justify-content: center;
+        }
+
+        .nav-item {
+            margin: 0 1.2rem;
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link i {
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+            color: var(--white);
+        }
+
+        .nav-link:hover {
+            color: var(--light-green);
+            transform: translateY(-2px);
+        }
+
+        .nav-link:hover i {
+            color: var(--light-green);
+        }
+
+        .social-icons-container {
+            display: flex;
+            justify-content: flex-end;
+            flex: 1;
+        }
+
+        .social-icons {
+            display: flex;
+        }
+
+        .social-icon {
+            color: var(--white);
+            margin-left: 1.5rem;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            color: var(--light-green);
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--white);
+            transition: var(--transition);
+        }
+
+        /* Contact Numbers in Navigation */
+        .contact-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            padding: 1rem;
+            min-width: 200px;
+            z-index: 1000;
+        }
+
+        .contact-dropdown.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .contact-dropdown .number-item {
+            display: flex;
+            align-items: center;
+            margin: 0.8rem 0;
+            color: var(--dark-gray);
+            font-weight: 500;
+        }
+
+        .contact-dropdown .number-item i {
+            color: var(--primary-green);
+            margin-right: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 120px;
+            padding: 2rem 5%;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .page-title h1 {
+            font-size: 2.8rem;
+            color: var(--primary-green);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .page-title h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary-green);
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-category {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            text-align: center;
+            padding-bottom: 1.5rem;
+        }
+
+        .product-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-category:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-name {
+            font-size: 1.4rem;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* Subcategory Grid */
+        .subcategory-grid {
+            display: none;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .subcategory-grid.active {
+            display: grid;
+        }
+
+        .back-button {
+            display: none;
+            background: var(--primary-green);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 2rem;
+            max-width: 150px;
+        }
+
+        .back-button:hover {
+            background: var(--light-green);
+            transform: translateY(-2px);
+        }
+
+        .back-button.active {
+            display: block;
+        }
+
+        /* Product Details Modal */
+        .product-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .product-modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: 15px;
+            max-width: 1000px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .modal-header {
+            padding: 2rem;
+            background: rgba(47, 94, 61, 0.1);
+            border-radius: 15px 15px 0 0;
+            text-align: center;
+        }
+
+        .modal-title {
+            font-size: 2.2rem;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            background: var(--light-green);
+            transform: rotate(90deg);
+        }
+
+        .brands-container {
+            padding: 1.5rem 2rem;
+        }
+
+        .brands-title {
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .brands-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .brand-item {
+            background: rgba(47, 94, 61, 0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 500;
+            color: var(--primary-green);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .brand-item:hover, .brand-item.active {
+            background: var(--primary-green);
+            color: var(--white);
+        }
+
+        .brand-hr {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--light-green), transparent);
+            margin: 1.5rem 0;
+        }
+
+        .products-container {
+            padding: 0 2rem 2rem;
+        }
+
+        .products-grid-modal {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-item {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            padding-bottom: 1rem;
+        }
+
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-item-image {
+            height: 180px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .product-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-item:hover .product-item-image img {
+            transform: scale(1.05);
+        }
+
+        .product-item-name {
+            font-size: 1.1rem;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            padding: 0 1rem;
+        }
+
+        .product-item-price {
+            font-size: 1rem;
+            color: var(--dark-gray);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: var(--white);
+            padding: 3rem 5%;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .subcategory-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .products-grid-modal {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 868px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 90px;
+                gap: 0;
+                flex-direction: column;
+                background: var(--nav-green);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                padding: 2rem 0;
+                z-index: 999;
+            }
+            
+            .nav-item {
+                margin: 1.2rem 0;
+            }
+            
+            .social-icons {
+                margin: 1rem auto 0;
+                justify-content: center;
+            }
+            
+            .social-icon {
+                margin: 0 0.8rem;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .logo-container {
+                justify-content: center;
+                margin-bottom: 1rem;
+            }
+            
+            .social-icons-container {
+                justify-content: center;
+                margin-top: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title h1 {
+                font-size: 2.2rem;
+            }
+            
+            .logo-img {
+                height: 70px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .subcategory-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .products-grid-modal {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-title h1 {
+                font-size: 1.8rem;
+            }
+            
+            .logo-img {
+                height: 60px;
+            }
+            
+            .brands-list {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .brand-item {
+                width: 80%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="pic/Logo.png" alt="JetBlast Badminton Court" class="logo-img">
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="main.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li class="nav-item"><a href="facilities.html" class="nav-link"><i class="fas fa-dumbbell"></i> Facilities</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                <li class="nav-item"><a href="gallery.html" class="nav-link"><i class="fas fa-images"></i> Gallery</a></li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link contact-trigger"><i class="fas fa-phone"></i> Contact</a>
+                    <div class="contact-dropdown">
+                        <div class="number-item">
+                            <i class="fas fa-phone"></i>
+                            <span>0781821959</span>
+                        </div>
+                        <div class="number-item">
+                            <i class="fas fa-phone"></i>
+                            <span>0718589929</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+            <div class="social-icons-container">
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1BuUBJ4A2M/?mibextid=wwXIfr" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/jetblastbadminton?igsh=MW83c2V6dms4dGZyMQ==" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://maps.app.goo.gl/cDTm2NNQW6A6ArF28?g_st=ipc" class="social-icon"><i class="fas fa-map-marker-alt"></i></a>
+                </div>
+            </div>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="page-title">
+            <h1>Badminton Store</h1>
+        </div>
+        
+        <!-- Back Button -->
+        <button class="back-button" id="backButton">
+            <i class="fas fa-arrow-left"></i> Back to Categories
+        </button>
+        
+        <!-- Main Products Grid -->
+        <div class="products-grid" id="mainProductsGrid">
+            <!-- Rackets -->
+            <div class="product-category" data-category="rackets">
+                <div class="product-image">
+                    <img src="pic/racket.png" alt="Badminton Rackets">
+                </div>
+                <h3 class="product-name">Badminton Rackets</h3>
+                <p>Premium rackets for all skill levels</p>
+            </div>
+            
+            <!-- Shoes -->
+            <div class="product-category" data-category="shoes">
+                <div class="product-image">
+                    <img src="pic/shoes" alt="Badminton Shoes">
+                </div>
+                <h3 class="product-name">Badminton Shoes</h3>
+                <p>High-performance footwear</p>
+            </div>
+            
+            <!-- Shuttlecocks -->
+            <div class="product-category" data-category="shuttlecocks">
+                <div class="product-image">
+                    <img src="pic/shuttlecock.jpeg" alt="Shuttlecocks">
+                </div>
+                <h3 class="product-name">Shuttlecocks</h3>
+                <p>Feather and synthetic options</p>
+            </div>
+            
+            <!-- Grips -->
+            <div class="product-category" data-category="grips">
+                <div class="product-image">
+                    <img src="pic/grips" alt="Grips">
+                </div>
+                <h3 class="product-name">Grips</h3>
+                <p>Improve your racket handling</p>
+            </div>
+            
+            <!-- Bags -->
+            <div class="product-category" data-category="bags">
+                <div class="product-image">
+                    <img src="pic/bags.jpg" alt="Badminton Bags">
+                </div>
+                <h3 class="product-name">Badminton Bags</h3>
+                <p>Carry your gear in style</p>
+            </div>
+            
+            <!-- Apparel -->
+            <div class="product-category" data-category="apparel">
+                <div class="product-image">
+                    <img src="pic/sockes.jpg" alt="Apparel">
+                </div>
+                <h3 class="product-name">Socks</h3>
+                <p>Comfortable playing attire</p>
+            </div>
+            
+            <!-- Accessories -->
+            <div class="product-category" data-category="accessories">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Accessories">
+                </div>
+                <h3 class="product-name">Accessories</h3>
+                <p>Essential badminton gear</p>
+            </div>
+            
+            <!-- Stringing -->
+            <div class="product-category" data-category="stringing">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1594385775453-2dcd27d6c2a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Stringing Service">
+                </div>
+                <h3 class="product-name">Stringing Service</h3>
+                <p>Professional racket stringing</p>
+            </div>
+            
+            <!-- Gifts -->
+            <div class="product-category" data-category="gifts">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Gifts">
+                </div>
+                <h3 class="product-name">Gifts</h3>
+                <p>Perfect for badminton enthusiasts</p>
+            </div>
+        </div>
+        
+        <!-- Subcategory Grids -->
+        <div class="subcategory-grid" id="racketsSubcategory">
+            <div class="product-category" data-category="yonex-rackets">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1599669454699-248893623440?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Yonex Rackets">
+                </div>
+                <h3 class="product-name">Yonex Rackets</h3>
+                <p>Professional grade rackets</p>
+            </div>
+            
+            <div class="product-category" data-category="victor-rackets">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1599669454699-248893623440?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Victor Rackets">
+                </div>
+                <h3 class="product-name">Victor Rackets</h3>
+                <p>High-performance rackets</p>
+            </div>
+            
+            <div class="product-category" data-category="lining-rackets">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1599669454699-248893623440?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Li-Ning Rackets">
+                </div>
+                <h3 class="product-name">Li-Ning Rackets</h3>
+                <p>Innovative racket technology</p>
+            </div>
+        </div>
+        
+        <div class="subcategory-grid" id="shoesSubcategory">
+            <div class="product-category" data-category="yonex-shoes">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Yonex Shoes">
+                </div>
+                <h3 class="product-name">Yonex Shoes</h3>
+                <p>Power cushion technology</p>
+            </div>
+            
+            <div class="product-category" data-category="asics-shoes">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Asics Shoes">
+                </div>
+                <h3 class="product-name">Asics Shoes</h3>
+                <p>Gel cushioning system</p>
+            </div>
+            
+            <div class="product-category" data-category="mizuno-shoes">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Mizuno Shoes">
+                </div>
+                <h3 class="product-name">Mizuno Shoes</h3>
+                <p>Wave plate technology</p>
+            </div>
+        </div>
+        
+        <!-- Add more subcategory grids for other categories as needed -->
+    </div>
+
+    <!-- Product Details Modal -->
+    <div class="product-modal" id="productModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalProductTitle">Product Category</h2>
+            </div>
+            
+            <div class="brands-container">
+                <h3 class="brands-title">Popular Brands</h3>
+                <div class="brands-list" id="brandsList">
+                    <!-- Brands will be inserted here -->
+                </div>
+                <div class="brand-hr"></div>
+            </div>
+            
+            <div class="products-container">
+                <div class="products-grid-modal" id="productsGrid">
+                    <!-- Products will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>JetBlast Badminton Court – Your premium destination for ultimate gameplay. Visit us for bookings and rentals.</p>
+            <p>No. 60/A, Boundary Road, Kochchikade | Phone: 076-6404536 | Email: info@jetblastbadminton.com</p>
+            <p class="copyright">©️ 2025 JetBlast Badminton Court. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+
+        // Contact dropdown toggle
+        const contactTrigger = document.querySelector('.contact-trigger');
+        const contactDropdown = document.querySelector('.contact-dropdown');
+        
+        if (contactTrigger && contactDropdown) {
+            contactTrigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                contactDropdown.classList.toggle('show');
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!contactTrigger.contains(e.target) && !contactDropdown.contains(e.target)) {
+                    contactDropdown.classList.remove('show');
+                }
+            });
+        }
+
+        // Product data
+        const products = {
+            rackets: {
+                title: "Badminton Rackets",
+                brands: ["Yonex", "Victor", "Li-Ning", "Babolat", "Carlton"],
+                items: [
+                    { name: "Yonex Astrox 99", price: "$199", image: "https://images.unsplash.com/photo-1599669454699-248893623440?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Victor Thruster F", price: "$179", image: "https://images.unsplash.com/photo-1599669454699-248893623440?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Li-Ning Aeronaut 9000", price: "$189", image: "https://images.unsplash.com/photo-1599669454699-248893623440?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Yonex Nanoflare 800", price: "$169", image: "https://images.unsplash.com/photo-1599669454699-248893623440?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Babolat Satelite Gravity", price: "$159", image: "https://images.unsplash.com/photo-1599669454699-248893623440?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Carlton Vapor Trail", price: "$149", image: "https://images.unsplash.com/photo-1599669454699-248893623440?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+                ]
+            },
+            shoes: {
+                title: "Badminton Shoes",
+                brands: ["Yonex", "Asics", "Mizuno", "Victor", "Li-Ning"],
+                items: [
+                    { name: "Yonex Power Cushion 65", price: "$129", image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Asics Gel-Rocket", price: "$99", image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Mizuno Wave Lightning", price: "$119", image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Victor A922", price: "$109", image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Li-Ning AYTS011", price: "$89", image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+                ]
+            },
+            shuttlecocks: {
+                title: "Shuttlecocks",
+                brands: ["Yonex", "Victor", "RSL", "Carlton", "Forza"],
+                items: [
+                    { name: "Yonex Aerosensa 50", price: "$25/dozen", image: "https://images.unsplash.com/photo-1594385775351-28d35db9a264?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Victor Champion", price: "$22/dozen", image: "https://images.unsplash.com/photo-1594385775351-28d35db9a264?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "RSL Classic", price: "$20/dozen", image: "https://images.unsplash.com/photo-1594385775351-28d35db9a264?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Carlton Airblade", price: "$18/dozen", image: "https://images.unsplash.com/photo-1594385775351-28d35db9a264?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+                ]
+            }
+            // Additional categories can be added similarly
+        };
+
+        // Modal functionality
+        const productModal = document.getElementById('productModal');
+        const modalClose = document.querySelector('.modal-close');
+        const modalTitle = document.getElementById('modalProductTitle');
+        const brandsList = document.getElementById('brandsList');
+        const productsGrid = document.getElementById('productsGrid');
+        
+        // Close modal when clicking close button
+        modalClose.addEventListener('click', () => {
+            productModal.classList.remove('active');
+        });
+        
+        // Close modal when clicking outside
+        productModal.addEventListener('click', (e) => {
+            if (e.target === productModal) {
+                productModal.classList.remove('active');
+            }
+        });
+        
+        // Subcategory navigation
+        const mainProductsGrid = document.getElementById('mainProductsGrid');
+        const backButton = document.getElementById('backButton');
+        const subcategoryGrids = document.querySelectorAll('.subcategory-grid');
+        
+        // Product category click handler
+        document.querySelectorAll('.product-category').forEach(category => {
+            category.addEventListener('click', () => {
+                const categoryId = category.getAttribute('data-category');
+                
+                // Check if it's a main category with subcategories
+                if (categoryId === 'rackets' || categoryId === 'shoes') {
+                    // Hide main grid and show subcategory grid
+                    mainProductsGrid.style.display = 'none';
+                    backButton.classList.add('active');
+                    
+                    // Show the appropriate subcategory grid
+                    if (categoryId === 'rackets') {
+                        document.getElementById('racketsSubcategory').classList.add('active');
+                    } else if (categoryId === 'shoes') {
+                        document.getElementById('shoesSubcategory').classList.add('active');
+                    }
+                } else {
+                    // Open product modal for categories without subcategories
+                    openProductModal(categoryId);
+                }
+            });
+        });
+        
+        // Back button functionality
+        backButton.addEventListener('click', () => {
+            // Hide all subcategory grids
+            subcategoryGrids.forEach(grid => {
+                grid.classList.remove('active');
+            });
+            
+            // Show main grid and hide back button
+            mainProductsGrid.style.display = 'grid';
+            backButton.classList.remove('active');
+        });
+        
+        // Function to open product modal
+        function openProductModal(categoryId) {
+            const category = products[categoryId];
+            
+            if (category) {
+                modalTitle.textContent = category.title;
+                
+                // Update brands
+                brandsList.innerHTML = '';
+                category.brands.forEach(brand => {
+                    const brandItem = document.createElement('div');
+                    brandItem.className = 'brand-item';
+                    brandItem.textContent = brand;
+                    brandsList.appendChild(brandItem);
+                });
+                
+                // Update products
+                productsGrid.innerHTML = '';
+                category.items.forEach(item => {
+                    const productItem = document.createElement('div');
+                    productItem.className = 'product-item';
+                    productItem.innerHTML = `
+                        <div class="product-item-image">
+                            <img src="${item.image}" alt="${item.name}">
+                        </div>
+                        <h4 class="product-item-name">${item.name}</h4>
+                        <p class="product-item-price">${item.price}</p>
+                    `;
+                    productsGrid.appendChild(productItem);
+                });
+                
+                // Show modal
+                productModal.classList.add('active');
+            }
+        }
+        
+        // Sticky header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+    </script>
+</body>
+</html>

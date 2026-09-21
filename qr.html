@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JetBlast Badminton Court - QR Payment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #2F5E3D;
+            --light-green: #4a7d59;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --nav-green: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            background-image: url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            z-index: -1;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--nav-green);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .logo-img {
+            height: 90px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            margin: 0;
+            position: relative;
+            flex: 2;
+            justify-content: center;
+        }
+
+        .nav-item {
+            margin: 0 1.2rem;
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link i {
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+            color: var(--white);
+        }
+
+        .nav-link:hover {
+            color: var(--light-green);
+            transform: translateY(-2px);
+        }
+
+        .nav-link:hover i {
+            color: var(--light-green);
+        }
+
+        .social-icons-container {
+            display: flex;
+            justify-content: flex-end;
+            flex: 1;
+        }
+
+        .social-icons {
+            display: flex;
+        }
+
+        .social-icon {
+            color: var(--white);
+            margin-left: 1.5rem;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            color: var(--light-green);
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--white);
+            transition: var(--transition);
+        }
+
+        /* Contact Numbers in Navigation */
+        .contact-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            padding: 1rem;
+            min-width: 200px;
+            z-index: 1000;
+        }
+
+        .contact-dropdown.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .contact-dropdown .number-item {
+            display: flex;
+            align-items: center;
+            margin: 0.8rem 0;
+            color: var(--dark-gray);
+            font-weight: 500;
+        }
+
+        .contact-dropdown .number-item i {
+            color: var(--primary-green);
+            margin-right: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 120px;
+            padding: 2rem 5%;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            width: 100%;
+        }
+
+        .page-title h1 {
+            font-size: 2.8rem;
+            color: var(--primary-green);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .page-title h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary-green);
+        }
+
+        /* QR Code Section */
+        .qr-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            padding: 3rem;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .qr-container {
+            margin-bottom: 2rem;
+        }
+
+        .qr-code {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .qr-code img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .qr-description {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .qr-description h2 {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .qr-description p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .qr-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 200px;
+            margin: 0 1rem 2rem;
+            padding: 1.5rem;
+            background: rgba(47, 94, 61, 0.05);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+            background: rgba(47, 94, 61, 0.1);
+        }
+
+        .step-icon {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .step h3 {
+            color: var(--primary-green);
+            margin-bottom: 0.8rem;
+        }
+
+        /* Payment Methods */
+        .payment-methods {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .payment-methods h2 {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .methods-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .method {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 1.5rem;
+            width: 150px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .method-icon {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 0.8rem;
+        }
+
+        .method-name {
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: var(--white);
+            padding: 3rem 5%;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .qr-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .step {
+                width: 80%;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        @media (max-width: 868px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 90px;
+                gap: 0;
+                flex-direction: column;
+                background: var(--nav-green);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                padding: 2rem 0;
+                z-index: 999;
+            }
+            
+            .nav-item {
+                margin: 1.2rem 0;
+            }
+            
+            .social-icons {
+                margin: 1rem auto 0;
+                justify-content: center;
+            }
+            
+            .social-icon {
+                margin: 0 0.8rem;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .logo-container {
+                justify-content: center;
+                margin-bottom: 1rem;
+            }
+            
+            .social-icons-container {
+                justify-content: center;
+                margin-top: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title h1 {
+                font-size: 2.2rem;
+            }
+            
+            .logo-img {
+                height: 70px;
+            }
+            
+            .qr-section, .payment-methods {
+                padding: 2rem;
+            }
+            
+            .qr-code {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .methods-container {
+                gap: 1rem;
+            }
+            
+            .method {
+                width: 120px;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-title h1 {
+                font-size: 1.8rem;
+            }
+            
+            .logo-img {
+                height: 60px;
+            }
+            
+            .qr-section, .payment-methods {
+                padding: 1.5rem;
+            }
+            
+            .qr-code {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .step {
+                width: 100%;
+            }
+            
+            .methods-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .method {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="icon/logo.jpg" alt="JetBlast Badminton Court" class="logo-img">
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#slider" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li class="nav-item"><a href="facilities.html" class="nav-link"><i class="fas fa-dumbbell"></i> Facilities</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                <li class="nav-item"><a href="gallery.html" class="nav-link"><i class="fas fa-images"></i> Gallery</a></li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link contact-trigger"><i class="fas fa-phone"></i> Contact</a>
+                    <div class="contact-dropdown">
+                        <div class="number-item">
+                            <i class="fas fa-phone"></i>
+                            <span>0781821959</span>
+                        </div>
+                        <div class="number-item">
+                            <i class="fas fa-phone"></i>
+                            <span>0718589929</span>
+                        </div>
+                    </div>
+                </li>
+                <!-- <li class="nav-item"><a href="coaching.html" class="nav-link"><i class="fas fa-user-graduate"></i> Coaching</a></li>
+                <li class="nav-item"><a href="store.html" class="nav-link"><i class="fas fa-store"></i> Store</a></li>
+                <li class="nav-item"><a href="qr-payment.html" class="nav-link active"><i class="fas fa-qrcode"></i> QR Payment</a></li> -->
+            </ul>
+            
+            <div class="social-icons-container">
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://maps.app.goo.gl/cDTm2NNQW6A6ArF28?g_st=ipc" class="social-icon"><i class="fas fa-map-marker-alt"></i></a>
+                </div>
+            </div>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="page-title">
+            <h1>QR Payment Facility</h1>
+        </div>
+        
+        <!-- QR Code Section -->
+        <section class="qr-section">
+            <div class="qr-container">
+                <div class="qr-code">
+                    <!-- Replace with your actual QR code image -->
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=JetBlastBadmintonCourt-Payment" alt="QR Code for Payment">
+                </div>
+            </div>
+            
+            <div class="qr-description">
+                <h2>Easy & Secure Payment</h2>
+                <p>JetBlast Badminton Court now offers QR code payment facility for your convenience. Simply scan the QR code with your mobile banking app or payment wallet to make instant payments for court bookings, equipment rentals, coaching fees, and store purchases.</p>
+                
+                <div class="qr-steps">
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Step 1</h3>
+                        <p>Open your banking app or payment wallet on your smartphone</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-qrcode"></i>
+                        </div>
+                        <h3>Step 2</h3>
+                        <p>Tap on the QR code scanner and point your camera at our QR code</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>Step 3</h3>
+                        <p>Enter the payment amount and confirm the transaction</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Payment Methods -->
+        <!-- <section class="payment-methods">
+            <h2>Supported Payment Methods</h2>
+            <div class="methods-container">
+                <div class="method">
+                    <div class="method-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <p class="method-name">Bank Transfer</p>
+                </div>
+                
+                <div class="method">
+                    <div class="method-icon">
+                        <i class="fab fa-paypal"></i>
+                    </div>
+                    <p class="method-name">PayPal</p>
+                </div>
+                
+                <div class="method">
+                    <div class="method-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <p class="method-name">e-Wallets</p>
+                </div>
+                
+                <div class="method">
+                    <div class="method-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <p class="method-name">Mobile Banking</p>
+                </div>
+            </div>
+        </section> -->
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>JetBlast Badminton Court – Your premium destination for ultimate gameplay. Visit us for bookings and rentals.</p>
+            <p>No. 60/A, Boundary Road, Kochchikade | Phone: 076-6404536 | Email: info@jetblastbadminton.com</p>
+            <p class="copyright">©️ 2025 JetBlast Badminton Court. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+
+        // Contact dropdown toggle
+        const contactTrigger = document.querySelector('.contact-trigger');
+        const contactDropdown = document.querySelector('.contact-dropdown');
+        
+        if (contactTrigger && contactDropdown) {
+            contactTrigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                contactDropdown.classList.toggle('show');
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!contactTrigger.contains(e.target) && !contactDropdown.contains(e.target)) {
+                    contactDropdown.classList.remove('show');
+                }
+            });
+        }
+
+        // Sticky header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+    </script>
+</body>
+</html>
