@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JetBlast Badminton Court - Coaching Services</title>
+    <title>JetBlast Badminton Court - Premium Badminton Facilities</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="icon" href="icon/logo.jpg" />
@@ -32,22 +32,6 @@
             color: var(--dark-gray);
             line-height: 1.6;
             overflow-x: hidden;
-            background-image: url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.7); /* Reduced opacity to show more background */
-            z-index: -1;
         }
 
         h1, h2, h3, h4, h5 {
@@ -135,11 +119,13 @@
         .social-icons-container {
             display: flex;
             justify-content: flex-end;
+            align-items: center;
             flex: 1;
         }
 
         .social-icons {
             display: flex;
+            align-items: center;
         }
 
         .social-icon {
@@ -152,6 +138,31 @@
         .social-icon:hover {
             color: var(--light-green);
             transform: translateY(-2px);
+        }
+
+        /* WhatsApp specific icon - larger and different color */
+        .whatsapp-icon {
+            background-color: #25D366;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 1.5rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .whatsapp-icon:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .whatsapp-icon i {
+            font-size: 1.4rem;
         }
 
         .hamburger {
@@ -207,405 +218,600 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Main Content */
-        .main-content {
-            margin-top: 120px;
-            padding: 2rem 5%;
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
+        /* Hero Slider - MODIFIED: Only Join Our Community part */
+        .slider {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            margin-top: 70px;
         }
 
-        .page-title {
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 1;
+            color: var(--white);
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .slide-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .slide-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: 2px solid var(--primary-green);
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--primary-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dot.active {
+            background: var(--white);
+            transform: scale(1.3);
+        }
+
+        /* Abstract Geometric Background Pattern */
+        .geometric-bg {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .geometric-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--white);
+            background-image: 
+                linear-gradient(30deg, #f0f0f0 12%, transparent 12.5%, transparent 87%, #f0f0f0 87.5%, #f0f0f0),
+                linear-gradient(150deg, #f0f0f0 12%, transparent 12.5%, transparent 87%, #f0f0f0 87.5%, #f0f0f0),
+                linear-gradient(30deg, #f0f0f0 12%, transparent 12.5%, transparent 87%, #f0f0f0 87.5%, #f0f0f0),
+                linear-gradient(150deg, #f0f0f0 12%, transparent 12.5%, transparent 87%, #f0f0f0 87.5%, #f0f0f0),
+                linear-gradient(60deg, rgba(240,240,240,0.5) 25%, transparent 25.5%, transparent 75%, rgba(240,240,240,0.5) 75%, rgba(240,240,240,0.5)),
+                linear-gradient(60deg, rgba(240,240,240,0.5) 25%, transparent 25.5%, transparent 75%, rgba(240,240,240,0.5) 75%, rgba(240,240,240,0.5));
+            background-size: 80px 140px;
+            background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+            opacity: 0.7;
+            z-index: 0;
+        }
+
+        /* Features Section with geometric background */
+        .features {
+            padding: 5rem 5%;
+            position: relative;
+            background-color: var(--facilities-bg);
+        }
+
+        .section-title {
             text-align: center;
             margin-bottom: 3rem;
             position: relative;
+            z-index: 1;
         }
 
-        .page-title h1 {
-            font-size: 2.8rem;
+        .section-title h2 {
+            font-size: 2.5rem;
             color: var(--primary-green);
             position: relative;
             display: inline-block;
-            padding-bottom: 15px;
+            padding-bottom: 10px;
         }
 
-        .page-title h1::after {
+        .section-title h2::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
+            width: 80px;
             height: 4px;
             background: var(--primary-green);
         }
 
-        /* Coaches Section - MODIFIED */
-        .coaches-section {
-            margin-bottom: 4rem;
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
-        .coaches-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2.5rem;
-        }
-
-        .coach-card {
-            background: rgba(255, 255, 255, 0.85);
-            border-radius: 15px;
+        .feature-card {
+            background: var(--white);
+            border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            width: 100%;
-            max-width: 650px;
-            margin-bottom: 2rem;
             cursor: pointer;
-            border: 1px solid rgba(47, 94, 61, 0.2);
-            flex: 1 1 45%;
-            min-width: 500px;
+            border: 1px solid rgba(47, 94, 61, 0.1);
         }
 
-        .coach-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .coach-header {
-            display: flex;
-            padding: 2rem;
-            background: rgba(47, 94, 61, 0.1);
-        }
-
-        .coach-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
+        .feature-img {
+            height: 200px;
             overflow: hidden;
-            margin-right: 2rem;
-            border: 4px solid var(--primary-green);
         }
 
-        .coach-photo img {
+        .feature-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .coach-info {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .coach-name {
-            font-size: 1.8rem;
-            color: var(--primary-green);
-            margin-bottom: 0.8rem;
-        }
-
-        .coach-title {
-            font-size: 1.2rem;
-            color: var(--light-green);
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .coach-brief {
-            font-size: 1rem;
-            color: var(--dark-gray);
-            line-height: 1.5;
-        }
-
-        .coach-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 0 2rem;
-        }
-
-        .coach-details.active {
-            max-height: 1200px;
-            padding: 2rem;
-        }
-
-        .coach-details h3 {
-            color: var(--primary-green);
-            margin-bottom: 1.2rem;
-            font-size: 1.5rem;
-        }
-
-        .coach-details p {
-            margin-bottom: 1.2rem;
-            line-height: 1.6;
-            font-size: 1.05rem;
-        }
-
-        .coach-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 1.2rem;
-            background: rgba(47, 94, 61, 0.08);
-            border-radius: 10px;
             transition: var(--transition);
         }
 
-        .stat-item:hover {
-            background: rgba(47, 94, 61, 0.12);
-            transform: translateY(-3px);
+        .feature-card:hover .feature-img img {
+            transform: scale(1.1);
         }
 
-        .stat-value {
-            font-size: 2.2rem;
-            font-weight: 700;
+        .feature-content {
+            padding: 1.5rem;
+        }
+
+        .feature-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
             color: var(--primary-green);
         }
 
-        .stat-label {
-            font-size: 1rem;
-            color: var(--dark-gray);
+        /* About Section - MODIFIED */
+        .about {
+            padding: 5rem 5%;
+            background: var(--white);
+            position: relative;
         }
 
-        /* Coach Details Modal */
-        .coach-modal {
-            display: none;
-            position: fixed;
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: stretch;
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .about-slider {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-slide {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 2000;
-            overflow-y: auto;
-            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.8s ease;
         }
 
-        .coach-modal.active {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .about-slide.active {
+            opacity: 1;
         }
 
-        .modal-content {
-            background: white;
-            border-radius: 15px;
-            max-width: 800px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            position: relative;
-        }
-
-        .modal-header {
-            padding: 2rem;
-            background: rgba(47, 94, 61, 0.1);
-            display: flex;
-            align-items: center;
-            border-radius: 15px 15px 0 0;
-        }
-
-        .modal-photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 2rem;
-            border: 4px solid var(--primary-green);
-        }
-
-        .modal-photo img {
+        .about-slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
-        .modal-info {
-            flex: 1;
+        .about-slider-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            z-index: 10;
         }
 
-        .modal-name {
-            font-size: 2rem;
+        .about-dot {
+            width: 10px;
+            height: 10px;
+            margin: 0 4px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .about-dot.active {
+            background: var(--white);
+            transform: scale(1.2);
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        .about-content h2 {
+            font-size: 2.2rem;
             color: var(--primary-green);
-            margin-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        .modal-title {
-            font-size: 1.3rem;
-            color: var(--light-green);
+        .about-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Gallery Section with geometric background - MODIFIED */
+        .gallery {
+            padding: 5rem 5%;
+            position: relative;
+            background-color: var(--gallery-bg);
+        }
+
+        .gallery-categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .category-btn {
+            background: var(--white);
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+            padding: 0.7rem 1.5rem;
+            margin: 0 0.5rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
             font-weight: 500;
         }
 
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+        .category-btn.active, .category-btn:hover {
             background: var(--primary-green);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: var(--transition);
-        }
-
-        .modal-close:hover {
-            background: var(--light-green);
-            transform: rotate(90deg);
-        }
-
-        .modal-body {
-            padding: 2rem;
-        }
-
-        .modal-section {
-            margin-bottom: 2rem;
-        }
-
-        .modal-section h3 {
-            color: var(--primary-green);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            border-bottom: 2px solid var(--light-green);
-            padding-bottom: 0.5rem;
-        }
-
-        .modal-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-
-        /* Services Section */
-        .services-section {
-            margin-top: 4rem;
-            padding: 3rem 2rem;
-            background: rgba(255, 255, 255, 0.85);
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-        }
-
-        .services-section h2 {
-            text-align: center;
-            color: var(--primary-green);
-            margin-bottom: 2rem;
-            font-size: 2.2rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-item {
-            padding: 1.8rem;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-            border-left: 4px solid var(--primary-green);
-        }
-
-        .service-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-            background: rgba(255, 255, 255, 1);
-        }
-
-        .service-item h3 {
-            color: var(--primary-green);
-            margin-bottom: 1.2rem;
-            display: flex;
-            align-items: center;
-            font-size: 1.3rem;
-        }
-
-        .service-item h3 i {
-            margin-right: 0.8rem;
-            font-size: 1.4rem;
-        }
-
-        .service-item p {
-            line-height: 1.6;
-            color: var(--dark-gray);
-            font-size: 1.05rem;
-        }
-
-        /* Footer */
-        footer {
-            background: #000;
             color: var(--white);
-            padding: 3rem 5%;
-            text-align: center;
-            margin-top: 4rem;
         }
 
-        .footer-content {
-            max-width: 800px;
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+            max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
-        .footer-content p {
-            margin-bottom: 1rem;
-            opacity: 0.8;
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 280px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            background: var(--white);
+            border: 1px solid rgba(47, 94, 61, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            display: flex;
+            flex-direction: column;
         }
 
-        .copyright {
-            margin-top: 2rem;
-            padding-top: 1rem;
+        .gallery-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-img {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-caption {
+            padding: 10px 15px;
+            background: var(--white);
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Enhanced Footer Styles */
+        .footer {
+            background:  #2F5E3D;
+            color: white;
+            padding: 40px 20px 20px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-brand h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .footer-brand h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .footer-brand p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #e0e0e0;
+        }
+        
+        .footer-social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .footer-social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: white;
+            border-radius: 50%;
+            color: #1a2a57;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-social-icons a:hover {
+            background-color: white;
+            transform: translateY(-3px);
+        }
+        
+        .footer-section h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: white;
+            position: relative;
+            padding-bottom: 8px;
+        }
+        
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            color: white;
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        .contact-info span {
+            color: #e0e0e0;
+            line-height: 1.5;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0.7;
+            text-align: center;
+            color: #e0e0e0;
+            font-size: 14px;
+        }
+        
+        .footer-bottom a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive adjustments for footer */
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-brand, .footer-section {
+                text-align: center;
+            }
+            
+            .footer-section h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-social-icons {
+                justify-content: center;
+            }
+        }
+
+        /* Spacer for better visual separation */
+        .spacer {
+            height: 2rem;
         }
 
         /* Responsive Design */
         @media (max-width: 1200px) {
-            .coach-card {
-                min-width: 450px;
+            .nav-menu {
+                margin: 0;
+            }
+            
+            .nav-item {
+                margin: 0 0.8rem;
             }
         }
 
         @media (max-width: 992px) {
-            .coach-header {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
+            .slide-content h2 {
+                font-size: 2.8rem;
             }
             
-            .coach-photo {
-                margin-right: 0;
-                margin-bottom: 1.5rem;
+            .slide-content p {
+                font-size: 1.2rem;
             }
             
-            .coach-card {
-                min-width: 400px;
-                max-width: 100%;
+            .about-container {
+                grid-template-columns: 1fr;
             }
             
-            .modal-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .modal-photo {
-                margin-right: 0;
-                margin-bottom: 1rem;
+            .about-image {
+                max-width: 500px;
+                margin: 0 auto;
+                height: 400px;
             }
         }
 
@@ -635,6 +841,10 @@
             }
             
             .social-icon {
+                margin: 0 0.8rem;
+            }
+
+            .whatsapp-icon {
                 margin: 0 0.8rem;
             }
             
@@ -678,50 +888,48 @@
                 justify-content: center;
                 margin-top: 1rem;
             }
-            
-            .coach-card {
-                min-width: 100%;
-            }
         }
 
         @media (max-width: 768px) {
-            .page-title h1 {
+            .slide-content h2 {
                 font-size: 2.2rem;
+            }
+            
+            .slide-content p {
+                font-size: 1rem;
             }
             
             .logo-img {
                 height: 70px;
             }
             
-            .coach-name {
-                font-size: 1.5rem;
+            .section-title h2 {
+                font-size: 2rem;
             }
             
-            .services-grid {
-                grid-template-columns: 1fr;
+            .gallery-container {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             }
             
-            .coach-photo {
-                width: 120px;
-                height: 120px;
+            .gallery-item {
+                height: 250px;
             }
             
-            .modal-photo {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .modal-name {
-                font-size: 1.7rem;
-            }
-            
-            .modal-title {
-                font-size: 1.1rem;
+            .gallery-img {
+                height: 190px;
             }
         }
 
         @media (max-width: 576px) {
-            .page-title h1 {
+            .slide-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 0.6rem 1.5rem;
+            }
+            
+            .section-title h2 {
                 font-size: 1.8rem;
             }
             
@@ -729,28 +937,13 @@
                 height: 60px;
             }
             
-            .coach-stats {
+            .gallery-container {
                 grid-template-columns: 1fr;
             }
             
-            .coach-header {
-                padding: 1.5rem;
-            }
-            
-            .coach-details {
-                padding: 0 1.5rem;
-            }
-            
-            .coach-details.active {
-                padding: 1.5rem;
-            }
-            
-            .modal-stats {
-                grid-template-columns: 1fr;
-            }
-            
-            .modal-header, .modal-body {
-                padding: 1.5rem;
+            .category-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -764,10 +957,10 @@
             </div>
             
             <ul class="nav-menu">
-                <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
-                <li class="nav-item"><a href="facilities.html" class="nav-link"><i class="fas fa-dumbbell"></i> Facilities</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
-                <li class="nav-item"><a href="gallery.html" class="nav-link"><i class="fas fa-images"></i> Gallery</a></li>
+                <li class="nav-item"><a href="#slider" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li class="nav-item"><a href="#facilities" class="nav-link"><i class="fas fa-dumbbell"></i> Facilities</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                <li class="nav-item"><a href="#gallery" class="nav-link"><i class="fas fa-images"></i> Gallery</a></li>
                 <li class="nav-item">
                     <a href="#" class="nav-link contact-trigger"><i class="fas fa-phone"></i> Contact</a>
                     <div class="contact-dropdown">
@@ -785,10 +978,14 @@
             
             <div class="social-icons-container">
                 <div class="social-icons">
-                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/share/17NfVTyfMg/?mibextid=wwXIfr" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/jetblastbadminton?igsh=MW83c2V6dms4dGZyMQ==" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@jetblast26?_r=1&_t=ZS-91l1gdE9cW2" class="social-icon"><i class="fab fa-tiktok"></i></a>
                     <a href="https://maps.app.goo.gl/cDTm2NNQW6A6ArF28?g_st=ipc" class="social-icon"><i class="fas fa-map-marker-alt"></i></a>
+                    <!-- WhatsApp Icon Added -->
+                    <a href="https://chat.whatsapp.com/YOUR_WHATSAPP_GROUP_LINK"  target="_blank" class="whatsapp-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
                 </div>
             </div>
             
@@ -800,172 +997,289 @@
         </nav>
     </header>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <div class="page-title">
-            <h1>Coaching Services</h1>
+    <!-- Hero Slider - MODIFIED: Only showing "Join Our Community" section -->
+    <section id="slider" class="slider">
+        <!-- Slide 1: Join Our Community -->
+        <div class="slide active" style="background-image: url('badminton/join.jpg');">
+            <div class="slide-content">
+                <h2>Join Our Community</h2>
+                <p>Become part of a thriving badminton community</p>
+                <a href="#" class="btn">Membership</a>
+            </div>
         </div>
         
-        <!-- Coaches Section -->
-        <section class="coaches-section">
-            <div class="coaches-container">
-                <!-- Coach 1 -->
-                <div class="coach-card" data-coach="1">
-                    <div class="coach-header">
-                        <div class="coach-photo">
-                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Coach Alex Johnson">
-                        </div>
-                        <div class="coach-info">
-                            <h2 class="coach-name">Alex Johnson</h2>
-                            <p class="coach-title">Head Coach & Former National Champion</p>
-                            <p class="coach-brief">Specializing in advanced techniques and tournament preparation for competitive players.</p>
-                        </div>
-                    </div>
-                    <div class="coach-details">
-                        <h3>About Coach Alex</h3>
-                        <p>Alex Johnson brings over 15 years of professional badminton experience to JetBlast. As a former national champion, he has competed at the highest levels and now dedicates his time to developing the next generation of champions.</p>
-                        
-                        <div class="coach-stats">
-                            <div class="stat-item">
-                                <div class="stat-value">15+</div>
-                                <div class="stat-label">Years Experience</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">50+</div>
-                                <div class="stat-label">Trained Champions</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">5</div>
-                                <div class="stat-label">National Titles</div>
-                            </div>
-                        </div>
-                        
-                        <h3>Specializations</h3>
-                        <p>Advanced footwork techniques, strategic game planning, mental toughness training, tournament preparation, and doubles strategy development.</p>
-                        
-                        <h3>Coaching Philosophy</h3>
-                        <p>"I believe in building a strong foundation while adapting to each player's unique strengths. Success comes from consistent practice, strategic thinking, and mental resilience."</p>
-                    </div>
-                </div>
-                
-                <!-- Coach 2 -->
-                <div class="coach-card" data-coach="2">
-                    <div class="coach-header">
-                        <div class="coach-photo">
-                            <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Coach Sarah Chen">
-                        </div>
-                        <div class="coach-info">
-                            <h2 class="coach-name">Sarah Chen</h2>
-                            <p class="coach-title">Junior Development Coach & Sports Scientist</p>
-                            <p class="coach-brief">Focusing on youth development, proper technique foundation, and injury prevention.</p>
-                        </div>
-                    </div>
-                    <div class="coach-details">
-                        <h3>About Coach Sarah</h3>
-                        <p>Sarah Chen combines her background in sports science with 10 years of coaching experience to create development programs that are both effective and safe for players of all ages, with a special focus on junior players.</p>
-                        
-                        <div class="coach-stats">
-                            <div class="stat-item">
-                                <div class="stat-value">10+</div>
-                                <div class="stat-label">Years Coaching</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">200+</div>
-                                <div class="stat-label">Junior Players Trained</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">M.Sc.</div>
-                                <div class="stat-label">Sports Science</div>
-                            </div>
-                        </div>
-                        
-                        <h3>Specializations</h3>
-                        <p>Junior development programs, proper technique foundation, injury prevention, fitness training, and motivation strategies for young athletes.</p>
-                        
-                        <h3>Coaching Philosophy</h3>
-                        <p>"My approach focuses on developing a love for the game first. When players enjoy what they do, improvement follows naturally. I emphasize proper technique to ensure long-term playing enjoyment and injury prevention."</p>
-                    </div>
-                </div>
+        <!-- Slide 2: Join Our Community (Different image) -->
+        <div class="slide" style="background-image: url('badminton/photo2.jpg');">
+            <div class="slide-content">
+                <h2>Join Our Community</h2>
+                <p>Connect with passionate badminton players</p>
+                <a href="#" class="btn">Join Now</a>
             </div>
-        </section>
+        </div>
         
-        <!-- Services Section -->
-        <section class="services-section">
-            <h2>Our Coaching Programs</h2>
-            <div class="services-grid">
-                <div class="service-item">
-                    <h3><i class="fas fa-user-graduate"></i> Beginner Programs</h3>
-                    <p>Perfect for those new to badminton. Learn basic strokes, rules, and fundamental techniques in a supportive environment.</p>
-                </div>
-                <div class="service-item">
-                    <h3><i class="fas fa-running"></i> Intermediate Training</h3>
-                    <p>For players with basic skills looking to improve their game. Focus on strategy, footwork, and advanced shots.</p>
-                </div>
-                <div class="service-item">
-                    <h3><i class="fas fa-trophy"></i> Advanced Coaching</h3>
-                    <p>Elite training for competitive players. Tournament preparation, advanced tactics, and mental conditioning.</p>
-                </div>
-                <div class="service-item">
-                    <h3><i class="fas fa-users"></i> Group Sessions</h3>
-                    <p>Small group training for players of similar skill levels. Great for motivation and competitive practice.</p>
-                </div>
-                <div class="service-item">
-                    <h3><i class="fas fa-user-friends"></i> Private Lessons</h3>
-                    <p>One-on-one coaching tailored to your specific needs and goals. Maximum attention and customized training.</p>
-                </div>
-                <div class="service-item">
-                    <h3><i class="fas fa-child"></i> Junior Development</h3>
-                    <p>Specialized programs for young players focusing on skill development, sportsmanship, and fun.</p>
-                </div>
+        <!-- Slide 3: Join Our Community (Different image) -->
+        <div class="slide" style="background-image: url('gallery/code1.jpg');">
+            <div class="slide-content">
+                <h2>Join Our Community</h2>
+                <p>Experience the joy of playing together</p>
+                <a href="#" class="btn">Become a Member</a>
             </div>
-        </section>
-    </div>
+        </div>
+        
+        <!-- Slide 4: Join Our Community (Different image) -->
+        <div class="slide" style="background-image: url('gallery/code2.jpeg');">
+            <div class="slide-content">
+                <h2>Join Our Community</h2>
+                <p>Grow your skills with like-minded players</p>
+                <a href="#" class="btn">Get Started</a>
+            </div>
+        </div>
+        
+        <!-- Slide 5: Join Our Community (Different image) -->
+        <div class="slide" style="background-image: url('gallery/code3.jpg');">
+            <div class="slide-content">
+                <h2>Join Our Community</h2>
+                <p>Be part of our exciting badminton family</p>
+                <a href="#" class="btn">Join Today</a>
+            </div>
+        </div>
+        
+        <div class="slider-dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+            <span class="dot" data-slide="3"></span>
+            <span class="dot" data-slide="4"></span>
+        </div>
+    </section>
 
-    <!-- Coach Details Modal -->
-    <div class="coach-modal" id="coachModal">
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <div class="modal-header">
-                <div class="modal-photo">
-                    <img id="modalCoachPhoto" src="" alt="Coach Photo">
+    <!-- Features Section with geometric background -->
+    <section id="facilities" class="features geometric-bg">
+        <div class="section-title">
+            <h2>Our Facilities</h2>
+        </div>
+        <div class="features-container">
+            <div class="feature-card" onclick="window.location.href='store.html'">
+                <div class="feature-img">
+                    <img src="badminton/photo2.jpg" alt="Professional Courts">
                 </div>
-                <div class="modal-info">
-                    <h2 class="modal-name" id="modalCoachName">Coach Name</h2>
-                    <p class="modal-title" id="modalCoachTitle">Coach Title</p>
+                <div class="feature-content">
+                    <h3>Badminton Store</h3>
+                    <p>Our 10 international standard courts feature professional lighting and sprung flooring for optimal play.</p>
                 </div>
             </div>
-            <div class="modal-body">
-                <div class="modal-section">
-                    <h3>About</h3>
-                    <p id="modalCoachAbout">Coach description will appear here.</p>
+            <div class="feature-card" onclick="window.location.href='gallery.html'">
+                <div class="feature-img">
+                    <img src="badminton/cutting.jpg" alt="Equipment Rental">
                 </div>
-                
-                <div class="modal-section">
-                    <h3>Statistics</h3>
-                    <div class="modal-stats" id="modalCoachStats">
-                        <!-- Stats will be inserted here -->
-                    </div>
+                <div class="feature-content">
+                    <h3>Cutting And Blinding</h3>
+                    <p>High-quality rackets, shuttlecocks, and other equipment available for rent at affordable rates.</p>
                 </div>
-                
-                <div class="modal-section">
-                    <h3>Specializations</h3>
-                    <p id="modalCoachSpecializations">Specializations will appear here.</p>
+            </div>
+            <div class="feature-card" onclick="window.location.href='index.html'">
+                <div class="feature-img">
+                    <img src="pic/coaching background.webp" alt="Coaching Services">
                 </div>
-                
-                <div class="modal-section">
-                    <h3>Coaching Philosophy</h3>
-                    <p id="modalCoachPhilosophy">Coaching philosophy will appear here.</p>
+                <div class="feature-content">
+                    <h3>Coaching Services</h3>
+                    <p>Learn from certified coaches with programs for beginners to advanced players of all ages.</p>
+                </div>
+            </div>
+            <div class="feature-card" onclick="window.location.href='qr.html'">
+                <div class="feature-img">
+                    <img src="pic/qr.jpg" alt="Tournament Facilities">
+                </div>
+                <div class="feature-content">
+                    <h3>QR Payment</h3>
+                    <p>Host your tournaments with our professional-grade facilities and equipment.</p>
+                </div>
+            </div>
+            <div class="feature-card" onclick="window.location.href='wash.html'">
+                <div class="feature-img">
+                    <img src="pic/washroom.jpg" alt="Tournament Facilities">
+                </div>
+                <div class="feature-content">
+                    <h3>Sanitary Facilities</h3>
+                    <p>Host your tournaments with our professional-grade facilities and equipment.</p>
+                </div>
+            </div>
+            <div class="feature-card" onclick="window.location.href='rent.html'">
+                <div class="feature-img">
+                    <img src="pic/rent.jpg" alt="Tournament Facilities">
+                </div>
+                <div class="feature-content">
+                    <h3>Equipment Rental</h3>
+                    <p>Host your tournaments with our professional-grade facilities and equipment.</p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>JetBlast Badminton Court – Your premium destination for ultimate gameplay. Visit us for bookings and rentals.</p>
-            <p>No. 60/A, Boundary Road, Kochchikade | Phone: 076-6404536 | Email: info@jetblastbadminton.com</p>
-            <p class="copyright">©️ 2025 JetBlast Badminton Court. All rights reserved.</p>
+    <!-- About Section - MODIFIED -->
+    <section id="about" class="about">
+        <div class="section-title">
+            <h2>About Us</h2>
+        </div>
+        <div class="about-container">
+            <div class="about-image">
+                <div class="about-slider">
+                    <div class="about-slide active">
+                        <img src="pic/about us.jpg" alt="JetBlast Badminton Court">
+                    </div>
+                    <div class="about-slide">
+                        <img src="pic/about us 2.jpg" alt="JetBlast Equipment">
+                    </div>
+                    <div class="about-slide">
+                        <img src="pic/about us 5.jpg" alt="JetBlast Coaching">
+                    </div>
+                    <div class="about-slide">
+                        <img src="pic/about us 4.jpg" alt="JetBlast Tournaments">
+                    </div>
+                    <div class="about-slider-dots">
+                        <span class="about-dot active" data-slide="0"></span>
+                        <span class="about-dot" data-slide="1"></span>
+                        <span class="about-dot" data-slide="2"></span>
+                        <span class="about-dot" data-slide="3"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-content">
+                <h2>Premium Badminton Experience</h2>
+                <p>JetBlast is a state-of-the-art three-court badminton stadium in Kochchikade, Negombo, open 24/7 for players who never stop loving the game. Designed with world-class PVC flooring and professional lighting, our courts provide the ideal setting for both casual rallies and competitive matches. We ensure your comfort and safety with clean washrooms, ample parking, and a secure, well-lit environment around the clock.</p>
+                <p>More than just a place to play, JetBlast is a hub for badminton enthusiasts — a space to train, compete, connect, and enjoy the sport at any hour of the day. Whether you're sharpening your skills, organizing a tournament, or simply playing for fun, JetBlast delivers the energy, quality, and community spirit to keep your game alive.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section with geometric background - MODIFIED -->
+    <section id="gallery" class="gallery geometric-bg">
+        <div class="section-title">
+            <h2>Gallery</h2>
+        </div>
+        <div class="gallery-categories">
+            <button class="category-btn active" data-category="all">History</button>
+            <button class="category-btn" data-category="courts">Courts</button>
+           
+            <button class="category-btn" data-category="events">Events</button>
+        </div>
+        <div class="gallery-container">
+            <div class="gallery-item" data-category="courts" data-url="court-details.html">
+                <div class="gallery-img">
+                    <img src="gallery/code1.jpg" alt="Court View">
+                </div>
+                <div class="gallery-caption">Professional badminton courts with international standards</div>
+            </div>
+            <div class="gallery-item" data-category="equipment" data-url="equipment-details.html">
+                <div class="gallery-img">
+                    <img src="gallery/code2.jpeg" alt="Equipment">
+                </div>
+                <div class="gallery-caption">High-quality rackets and shuttlecocks for rent</div>
+            </div>
+            <div class="gallery-item" data-category="events" data-url="coaching-details.html">
+                <div class="gallery-img">
+                    <img src="gallery/code3.jpg" alt="Coaching Session">
+                </div>
+                <div class="gallery-caption">Professional coaching sessions for all skill levels</div>
+            </div>
+            <div class="gallery-item" data-category="events" data-url="tournament-details.html">
+                <div class="gallery-img">
+                    <img src="gallery/equ1.jpg" alt="Tournament">
+                </div>
+                <div class="gallery-caption">Exciting tournaments and competitive events</div>
+            </div>
+            <div class="gallery-item" data-category="courts" data-url="player-details.html">
+                <div class="gallery-img">
+                    <img src="gallery/equ2.jpg" alt="Player Smashing">
+                </div>
+                <div class="gallery-caption">Players showcasing their skills and techniques</div>
+            </div>
+            <div class="gallery-item" data-category="courts" data-url="player-details.html">
+                <div class="gallery-img">
+                    <img src="gallery/eve1.jpg" alt="Player Reaction">
+                </div>
+                <div class="gallery-caption">Intense moments during competitive matches</div>
+            </div>
+            <div class="gallery-item" data-category="equipment" data-url="equipment-details.html">
+                <div class="gallery-img">
+                    <img src="gallery/eve2.jpg" alt="Rackets">
+                </div>
+                <div class="gallery-caption">Premium equipment selection for serious players</div>
+            </div>
+            <div class="gallery-item" data-category="events" data-url="event-details.html">
+                <div class="gallery-img">
+                    <img src="gallery/eve3.jpg" alt="Championship">
+                </div>
+                <div class="gallery-caption">Championship events with professional organization</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>JetBlast</h2>
+                <h3>Badminton Court</h3>
+                <p>Your premier badminton destination in the heart of the city. We offer state-of-the-art facilities, professional coaching, and a vibrant community for players of all levels.</p>
+                <div class="footer-social-icons">
+                    <a href="https://www.facebook.com/share/17NfVTyfMg/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/jetblastbadminton?igsh=MW83c2V6dms4dGZyMQ=="><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@jetblast26?_r=1&_t=ZS-91l1gdE9cW2"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://maps.app.goo.gl/cDTm2NNQW6A6ArF28?g_st=ipc"><i class="fas fa-map-marker-alt"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul class="footer-links">
+                    <li><a href="store.html">Badminton store</a></li>
+                    <li><a href="#">Cutting & Blinding</a></li>
+                    <li><a href="index.html">Coaching Services</a></li>
+                    <li><a href="qr.html">QR Payment</a></li>
+                    <li><a href="wash.html">Wash Room</a></li>
+                    <li><a href="rent.html">Equipment Rental</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Facilities</a></li>
+                    <li><a href="#">Coaches</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+94 71 281 1977<br>Call Us Anytime
+                        </span>
+                    </li>
+                    <li>
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+94 70 965 5148<br>WhatsApp Available</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>bookings@jetblast.lk<br>24h Response Time</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Boralesgamuwa<br>Western Province, Sri Lanka</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 JetBlast Badminton Court. All rights reserved. | Designed & Developed: <a href="http://sadeepa.ct.ws" target="_blank">sadeepatharindu.atwebpages.com</a></p>
         </div>
     </footer>
 
@@ -1002,118 +1316,168 @@
             });
         }
 
-        // Coach card toggle functionality (for small screens)
-        const coachCards = document.querySelectorAll('.coach-card');
-        
-        coachCards.forEach(card => {
-            card.addEventListener('click', (e) => {
-                // Only toggle details on small screens
-                if (window.innerWidth <= 992) {
-                    const details = card.querySelector('.coach-details');
-                    const isActive = details.classList.contains('active');
-                    
-                    // Close all other coach details
-                    coachCards.forEach(otherCard => {
-                        if (otherCard !== card) {
-                            otherCard.querySelector('.coach-details').classList.remove('active');
-                        }
-                    });
-                    
-                    // Toggle current coach details
-                    if (!isActive) {
-                        details.classList.add('active');
-                    } else {
-                        details.classList.remove('active');
-                    }
-                } else {
-                    // On larger screens, open modal
-                    const coachId = card.getAttribute('data-coach');
-                    openCoachModal(coachId);
-                }
+        // Image Slider
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (n + slides.length) % slides.length;
+            
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        // Auto slide
+        function startSlider() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        // Initialize slider
+        startSlider();
+
+        // Click on dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                clearInterval(slideInterval);
+                showSlide(index);
+                startSlider();
             });
         });
 
-        // Modal functionality
-        const coachModal = document.getElementById('coachModal');
-        const modalClose = document.querySelector('.modal-close');
-        
-        // Close modal when clicking close button
-        modalClose.addEventListener('click', () => {
-            coachModal.classList.remove('active');
-        });
-        
-        // Close modal when clicking outside
-        coachModal.addEventListener('click', (e) => {
-            if (e.target === coachModal) {
-                coachModal.classList.remove('active');
-            }
-        });
-        
-        // Coach data
-        const coaches = {
-            1: {
-                name: "Alex Johnson",
-                title: "Head Coach & Former National Champion",
-                photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                about: "Alex Johnson brings over 15 years of professional badminton experience to JetBlast. As a former national champion, he has competed at the highest levels and now dedicates his time to developing the next generation of champions.",
-                stats: [
-                    { value: "15+", label: "Years Experience" },
-                    { value: "50+", label: "Trained Champions" },
-                    { value: "5", label: "National Titles" }
-                ],
-                specializations: "Advanced footwork techniques, strategic game planning, mental toughness training, tournament preparation, and doubles strategy development.",
-                philosophy: "\"I believe in building a strong foundation while adapting to each player's unique strengths. Success comes from consistent practice, strategic thinking, and mental resilience.\""
-            },
-            2: {
-                name: "Sarah Chen",
-                title: "Junior Development Coach & Sports Scientist",
-                photo: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                about: "Sarah Chen combines her background in sports science with 10 years of coaching experience to create development programs that are both effective and safe for players of all ages, with a special focus on junior players.",
-                stats: [
-                    { value: "10+", label: "Years Coaching" },
-                    { value: "200+", label: "Junior Players Trained" },
-                    { value: "M.Sc.", label: "Sports Science" }
-                ],
-                specializations: "Junior development programs, proper technique foundation, injury prevention, fitness training, and motivation strategies for young athletes.",
-                philosophy: "\"My approach focuses on developing a love for the game first. When players enjoy what they do, improvement follows naturally. I emphasize proper technique to ensure long-term playing enjoyment and injury prevention.\""
-            }
-        };
-        
-        // Function to open coach modal
-        function openCoachModal(coachId) {
-            const coach = coaches[coachId];
+        // About Us Image Slider
+        const aboutSlides = document.querySelectorAll('.about-slide');
+        const aboutDots = document.querySelectorAll('.about-dot');
+        let currentAboutSlide = 0;
+        let aboutSlideInterval;
+
+        function showAboutSlide(n) {
+            aboutSlides.forEach(slide => slide.classList.remove('active'));
+            aboutDots.forEach(dot => dot.classList.remove('active'));
             
-            if (coach) {
-                document.getElementById('modalCoachPhoto').src = coach.photo;
-                document.getElementById('modalCoachName').textContent = coach.name;
-                document.getElementById('modalCoachTitle').textContent = coach.title;
-                document.getElementById('modalCoachAbout').textContent = coach.about;
-                document.getElementById('modalCoachSpecializations').textContent = coach.specializations;
-                document.getElementById('modalCoachPhilosophy').textContent = coach.philosophy;
-                
-                // Update stats
-                const statsContainer = document.getElementById('modalCoachStats');
-                statsContainer.innerHTML = '';
-                
-                coach.stats.forEach(stat => {
-                    const statItem = document.createElement('div');
-                    statItem.className = 'stat-item';
-                    statItem.innerHTML = `
-                        <div class="stat-value">${stat.value}</div>
-                        <div class="stat-label">${stat.label}</div>
-                    `;
-                    statsContainer.appendChild(statItem);
-                });
-                
-                // Show modal
-                coachModal.classList.add('active');
-            }
+            currentAboutSlide = (n + aboutSlides.length) % aboutSlides.length;
+            
+            aboutSlides[currentAboutSlide].classList.add('active');
+            aboutDots[currentAboutSlide].classList.add('active');
         }
-        
+
+        function nextAboutSlide() {
+            showAboutSlide(currentAboutSlide + 1);
+        }
+
+        // Auto slide for about section
+        function startAboutSlider() {
+            aboutSlideInterval = setInterval(nextAboutSlide, 4000);
+        }
+
+        // Initialize about slider
+        startAboutSlider();
+
+        // Click on about dots
+        aboutDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                clearInterval(aboutSlideInterval);
+                showAboutSlide(index);
+                startAboutSlider();
+            });
+        });
+
         // Sticky header on scroll
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             header.classList.toggle('sticky', window.scrollY > 0);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 90,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Gallery category filtering
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const category = button.getAttribute('data-category');
+                
+                // Filter gallery items
+                galleryItems.forEach(item => {
+                    const itemCategory = item.getAttribute('data-category');
+                    
+                    if (category === 'all' || category === itemCategory) {
+                        item.style.display = 'flex';
+                        // Add animation
+                        setTimeout(() => {
+                            item.classList.add('visible');
+                        }, 50);
+                    } else {
+                        item.classList.remove('visible');
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+        
+        // Initialize gallery items with animation
+        function initGalleryAnimation() {
+            galleryItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('visible');
+                }, index * 100);
+            });
+        }
+        
+        // Open new page when gallery item is clicked
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const url = item.getAttribute('data-url');
+                if (url) {
+                    window.open(url, '_blank');
+                }
+            });
+        });
+        
+        // Initialize when page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            initGalleryAnimation();
+            
+            // Update WhatsApp link with your actual group link
+            const whatsappLink = document.querySelector('.whatsapp-icon');
+            if (whatsappLink) {
+                // Replace with your actual WhatsApp group link
+                // Example: https://chat.whatsapp.com/your-group-invite-link
+                whatsappLink.href = "https://chat.whatsapp.com/YOUR_WHATSAPP_GROUP_LINK";
+            }
         });
     </script>
 </body>

@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JetBlast Badminton Court - Coaching Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="icon/logo.jpg" />
+    <style>
+        :root {
+            --primary-green: #2F5E3D;
+            --light-green: #4a7d59;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-gray: #000000;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --nav-green: #000000;
+            --facilities-bg: #ffffff;
+            --gallery-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.7); /* Reduced opacity to show more background */
+            z-index: -1;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--nav-green);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .logo-img {
+            height: 90px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            margin: 0;
+            position: relative;
+            flex: 2;
+            justify-content: center;
+        }
+
+        .nav-item {
+            margin: 0 1.2rem;
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link i {
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+            color: var(--white);
+        }
+
+        .nav-link:hover {
+            color: var(--light-green);
+            transform: translateY(-2px);
+        }
+
+        .nav-link:hover i {
+            color: var(--light-green);
+        }
+
+        .social-icons-container {
+            display: flex;
+            justify-content: flex-end;
+            flex: 1;
+        }
+
+        .social-icons {
+            display: flex;
+        }
+
+        .social-icon {
+            color: var(--white);
+            margin-left: 1.5rem;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            color: var(--light-green);
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--white);
+            transition: var(--transition);
+        }
+
+        /* Contact Numbers in Navigation */
+        .contact-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            padding: 1rem;
+            min-width: 200px;
+            z-index: 1000;
+        }
+
+        .contact-dropdown.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .contact-dropdown .number-item {
+            display: flex;
+            align-items: center;
+            margin: 0.8rem 0;
+            color: var(--dark-gray);
+            font-weight: 500;
+        }
+
+        .contact-dropdown .number-item i {
+            color: var(--primary-green);
+            margin-right: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 120px;
+            padding: 2rem 5%;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .page-title h1 {
+            font-size: 2.8rem;
+            color: var(--primary-green);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .page-title h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary-green);
+        }
+
+        /* Coaches Section - MODIFIED */
+        .coaches-section {
+            margin-bottom: 4rem;
+        }
+
+        .coaches-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2.5rem;
+        }
+
+        .coach-card {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            width: 100%;
+            max-width: 650px;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            border: 1px solid rgba(47, 94, 61, 0.2);
+            flex: 1 1 45%;
+            min-width: 500px;
+        }
+
+        .coach-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .coach-header {
+            display: flex;
+            padding: 2rem;
+            background: rgba(47, 94, 61, 0.1);
+        }
+
+        .coach-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 2rem;
+            border: 4px solid var(--primary-green);
+        }
+
+        .coach-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .coach-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .coach-name {
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            margin-bottom: 0.8rem;
+        }
+
+        .coach-title {
+            font-size: 1.2rem;
+            color: var(--light-green);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .coach-brief {
+            font-size: 1rem;
+            color: var(--dark-gray);
+            line-height: 1.5;
+        }
+
+        .coach-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0 2rem;
+        }
+
+        .coach-details.active {
+            max-height: 1200px;
+            padding: 2rem;
+        }
+
+        .coach-details h3 {
+            color: var(--primary-green);
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+        }
+
+        .coach-details p {
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .coach-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.2rem;
+            background: rgba(47, 94, 61, 0.08);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            background: rgba(47, 94, 61, 0.12);
+            transform: translateY(-3px);
+        }
+
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--dark-gray);
+        }
+
+        /* Coach Details Modal */
+        .coach-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .coach-modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .modal-header {
+            padding: 2rem;
+            background: rgba(47, 94, 61, 0.1);
+            display: flex;
+            align-items: center;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .modal-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 2rem;
+            border: 4px solid var(--primary-green);
+        }
+
+        .modal-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-info {
+            flex: 1;
+        }
+
+        .modal-name {
+            font-size: 2rem;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.3rem;
+            color: var(--light-green);
+            font-weight: 500;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            background: var(--light-green);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-section {
+            margin-bottom: 2rem;
+        }
+
+        .modal-section h3 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--light-green);
+            padding-bottom: 0.5rem;
+        }
+
+        .modal-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        /* Services Section */
+        .services-section {
+            margin-top: 4rem;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .services-section h2 {
+            text-align: center;
+            color: var(--primary-green);
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-item {
+            padding: 1.8rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary-green);
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .service-item h3 {
+            color: var(--primary-green);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            font-size: 1.3rem;
+        }
+
+        .service-item h3 i {
+            margin-right: 0.8rem;
+            font-size: 1.4rem;
+        }
+
+        .service-item p {
+            line-height: 1.6;
+            color: var(--dark-gray);
+            font-size: 1.05rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: var(--white);
+            padding: 3rem 5%;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .coach-card {
+                min-width: 450px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .coach-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .coach-photo {
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+            
+            .coach-card {
+                min-width: 400px;
+                max-width: 100%;
+            }
+            
+            .modal-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .modal-photo {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 868px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 90px;
+                gap: 0;
+                flex-direction: column;
+                background: var(--nav-green);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                padding: 2rem 0;
+                z-index: 999;
+            }
+            
+            .nav-item {
+                margin: 1.2rem 0;
+            }
+            
+            .social-icons {
+                margin: 1rem auto 0;
+                justify-content: center;
+            }
+            
+            .social-icon {
+                margin: 0 0.8rem;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            .contact-dropdown {
+                left: 50%;
+                transform: translateX(-50%);
+                width: 200px;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .logo-container {
+                justify-content: center;
+                margin-bottom: 1rem;
+            }
+            
+            .social-icons-container {
+                justify-content: center;
+                margin-top: 1rem;
+            }
+            
+            .coach-card {
+                min-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title h1 {
+                font-size: 2.2rem;
+            }
+            
+            .logo-img {
+                height: 70px;
+            }
+            
+            .coach-name {
+                font-size: 1.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .coach-photo {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .modal-photo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .modal-name {
+                font-size: 1.7rem;
+            }
+            
+            .modal-title {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-title h1 {
+                font-size: 1.8rem;
+            }
+            
+            .logo-img {
+                height: 60px;
+            }
+            
+            .coach-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .coach-header {
+                padding: 1.5rem;
+            }
+            
+            .coach-details {
+                padding: 0 1.5rem;
+            }
+            
+            .coach-details.active {
+                padding: 1.5rem;
+            }
+            
+            .modal-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-header, .modal-body {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="pic/Logo.png" alt="JetBlast Badminton Court" class="logo-img">
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li class="nav-item"><a href="facilities.html" class="nav-link"><i class="fas fa-dumbbell"></i> Facilities</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                <li class="nav-item"><a href="gallery.html" class="nav-link"><i class="fas fa-images"></i> Gallery</a></li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link contact-trigger"><i class="fas fa-phone"></i> Contact</a>
+                    <div class="contact-dropdown">
+                        <div class="number-item">
+                            <i class="fas fa-phone"></i>
+                            <span>0781821959</span>
+                        </div>
+                        <div class="number-item">
+                            <i class="fas fa-phone"></i>
+                            <span>0718589929</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+            <div class="social-icons-container">
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://maps.app.goo.gl/cDTm2NNQW6A6ArF28?g_st=ipc" class="social-icon"><i class="fas fa-map-marker-alt"></i></a>
+                </div>
+            </div>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="page-title">
+            <h1>Coaching Services</h1>
+        </div>
+        
+        <!-- Coaches Section -->
+        <section class="coaches-section">
+            <div class="coaches-container">
+                <!-- Coach 1 -->
+                <div class="coach-card" data-coach="1">
+                    <div class="coach-header">
+                        <div class="coach-photo">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Coach Alex Johnson">
+                        </div>
+                        <div class="coach-info">
+                            <h2 class="coach-name">Alex Johnson</h2>
+                            <p class="coach-title">Head Coach & Former National Champion</p>
+                            <p class="coach-brief">Specializing in advanced techniques and tournament preparation for competitive players.</p>
+                        </div>
+                    </div>
+                    <div class="coach-details">
+                        <h3>About Coach Alex</h3>
+                        <p>Alex Johnson brings over 15 years of professional badminton experience to JetBlast. As a former national champion, he has competed at the highest levels and now dedicates his time to developing the next generation of champions.</p>
+                        
+                        <div class="coach-stats">
+                            <div class="stat-item">
+                                <div class="stat-value">15+</div>
+                                <div class="stat-label">Years Experience</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">50+</div>
+                                <div class="stat-label">Trained Champions</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">5</div>
+                                <div class="stat-label">National Titles</div>
+                            </div>
+                        </div>
+                        
+                        <h3>Specializations</h3>
+                        <p>Advanced footwork techniques, strategic game planning, mental toughness training, tournament preparation, and doubles strategy development.</p>
+                        
+                        <h3>Coaching Philosophy</h3>
+                        <p>"I believe in building a strong foundation while adapting to each player's unique strengths. Success comes from consistent practice, strategic thinking, and mental resilience."</p>
+                    </div>
+                </div>
+                
+                <!-- Coach 2 -->
+                <div class="coach-card" data-coach="2">
+                    <div class="coach-header">
+                        <div class="coach-photo">
+                            <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Coach Sarah Chen">
+                        </div>
+                        <div class="coach-info">
+                            <h2 class="coach-name">Sarah Chen</h2>
+                            <p class="coach-title">Junior Development Coach & Sports Scientist</p>
+                            <p class="coach-brief">Focusing on youth development, proper technique foundation, and injury prevention.</p>
+                        </div>
+                    </div>
+                    <div class="coach-details">
+                        <h3>About Coach Sarah</h3>
+                        <p>Sarah Chen combines her background in sports science with 10 years of coaching experience to create development programs that are both effective and safe for players of all ages, with a special focus on junior players.</p>
+                        
+                        <div class="coach-stats">
+                            <div class="stat-item">
+                                <div class="stat-value">10+</div>
+                                <div class="stat-label">Years Coaching</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">200+</div>
+                                <div class="stat-label">Junior Players Trained</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">M.Sc.</div>
+                                <div class="stat-label">Sports Science</div>
+                            </div>
+                        </div>
+                        
+                        <h3>Specializations</h3>
+                        <p>Junior development programs, proper technique foundation, injury prevention, fitness training, and motivation strategies for young athletes.</p>
+                        
+                        <h3>Coaching Philosophy</h3>
+                        <p>"My approach focuses on developing a love for the game first. When players enjoy what they do, improvement follows naturally. I emphasize proper technique to ensure long-term playing enjoyment and injury prevention."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Services Section -->
+        <section class="services-section">
+            <h2>Our Coaching Programs</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3><i class="fas fa-user-graduate"></i> Beginner Programs</h3>
+                    <p>Perfect for those new to badminton. Learn basic strokes, rules, and fundamental techniques in a supportive environment.</p>
+                </div>
+                <div class="service-item">
+                    <h3><i class="fas fa-running"></i> Intermediate Training</h3>
+                    <p>For players with basic skills looking to improve their game. Focus on strategy, footwork, and advanced shots.</p>
+                </div>
+                <div class="service-item">
+                    <h3><i class="fas fa-trophy"></i> Advanced Coaching</h3>
+                    <p>Elite training for competitive players. Tournament preparation, advanced tactics, and mental conditioning.</p>
+                </div>
+                <div class="service-item">
+                    <h3><i class="fas fa-users"></i> Group Sessions</h3>
+                    <p>Small group training for players of similar skill levels. Great for motivation and competitive practice.</p>
+                </div>
+                <div class="service-item">
+                    <h3><i class="fas fa-user-friends"></i> Private Lessons</h3>
+                    <p>One-on-one coaching tailored to your specific needs and goals. Maximum attention and customized training.</p>
+                </div>
+                <div class="service-item">
+                    <h3><i class="fas fa-child"></i> Junior Development</h3>
+                    <p>Specialized programs for young players focusing on skill development, sportsmanship, and fun.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Coach Details Modal -->
+    <div class="coach-modal" id="coachModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-header">
+                <div class="modal-photo">
+                    <img id="modalCoachPhoto" src="" alt="Coach Photo">
+                </div>
+                <div class="modal-info">
+                    <h2 class="modal-name" id="modalCoachName">Coach Name</h2>
+                    <p class="modal-title" id="modalCoachTitle">Coach Title</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>About</h3>
+                    <p id="modalCoachAbout">Coach description will appear here.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Statistics</h3>
+                    <div class="modal-stats" id="modalCoachStats">
+                        <!-- Stats will be inserted here -->
+                    </div>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Specializations</h3>
+                    <p id="modalCoachSpecializations">Specializations will appear here.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Coaching Philosophy</h3>
+                    <p id="modalCoachPhilosophy">Coaching philosophy will appear here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>JetBlast Badminton Court – Your premium destination for ultimate gameplay. Visit us for bookings and rentals.</p>
+            <p>No. 60/A, Boundary Road, Kochchikade | Phone: 076-6404536 | Email: info@jetblastbadminton.com</p>
+            <p class="copyright">©️ 2025 JetBlast Badminton Court. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+
+        // Contact dropdown toggle
+        const contactTrigger = document.querySelector('.contact-trigger');
+        const contactDropdown = document.querySelector('.contact-dropdown');
+        
+        if (contactTrigger && contactDropdown) {
+            contactTrigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                contactDropdown.classList.toggle('show');
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!contactTrigger.contains(e.target) && !contactDropdown.contains(e.target)) {
+                    contactDropdown.classList.remove('show');
+                }
+            });
+        }
+
+        // Coach card toggle functionality (for small screens)
+        const coachCards = document.querySelectorAll('.coach-card');
+        
+        coachCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                // Only toggle details on small screens
+                if (window.innerWidth <= 992) {
+                    const details = card.querySelector('.coach-details');
+                    const isActive = details.classList.contains('active');
+                    
+                    // Close all other coach details
+                    coachCards.forEach(otherCard => {
+                        if (otherCard !== card) {
+                            otherCard.querySelector('.coach-details').classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current coach details
+                    if (!isActive) {
+                        details.classList.add('active');
+                    } else {
+                        details.classList.remove('active');
+                    }
+                } else {
+                    // On larger screens, open modal
+                    const coachId = card.getAttribute('data-coach');
+                    openCoachModal(coachId);
+                }
+            });
+        });
+
+        // Modal functionality
+        const coachModal = document.getElementById('coachModal');
+        const modalClose = document.querySelector('.modal-close');
+        
+        // Close modal when clicking close button
+        modalClose.addEventListener('click', () => {
+            coachModal.classList.remove('active');
+        });
+        
+        // Close modal when clicking outside
+        coachModal.addEventListener('click', (e) => {
+            if (e.target === coachModal) {
+                coachModal.classList.remove('active');
+            }
+        });
+        
+        // Coach data
+        const coaches = {
+            1: {
+                name: "Alex Johnson",
+                title: "Head Coach & Former National Champion",
+                photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                about: "Alex Johnson brings over 15 years of professional badminton experience to JetBlast. As a former national champion, he has competed at the highest levels and now dedicates his time to developing the next generation of champions.",
+                stats: [
+                    { value: "15+", label: "Years Experience" },
+                    { value: "50+", label: "Trained Champions" },
+                    { value: "5", label: "National Titles" }
+                ],
+                specializations: "Advanced footwork techniques, strategic game planning, mental toughness training, tournament preparation, and doubles strategy development.",
+                philosophy: "\"I believe in building a strong foundation while adapting to each player's unique strengths. Success comes from consistent practice, strategic thinking, and mental resilience.\""
+            },
+            2: {
+                name: "Sarah Chen",
+                title: "Junior Development Coach & Sports Scientist",
+                photo: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                about: "Sarah Chen combines her background in sports science with 10 years of coaching experience to create development programs that are both effective and safe for players of all ages, with a special focus on junior players.",
+                stats: [
+                    { value: "10+", label: "Years Coaching" },
+                    { value: "200+", label: "Junior Players Trained" },
+                    { value: "M.Sc.", label: "Sports Science" }
+                ],
+                specializations: "Junior development programs, proper technique foundation, injury prevention, fitness training, and motivation strategies for young athletes.",
+                philosophy: "\"My approach focuses on developing a love for the game first. When players enjoy what they do, improvement follows naturally. I emphasize proper technique to ensure long-term playing enjoyment and injury prevention.\""
+            }
+        };
+        
+        // Function to open coach modal
+        function openCoachModal(coachId) {
+            const coach = coaches[coachId];
+            
+            if (coach) {
+                document.getElementById('modalCoachPhoto').src = coach.photo;
+                document.getElementById('modalCoachName').textContent = coach.name;
+                document.getElementById('modalCoachTitle').textContent = coach.title;
+                document.getElementById('modalCoachAbout').textContent = coach.about;
+                document.getElementById('modalCoachSpecializations').textContent = coach.specializations;
+                document.getElementById('modalCoachPhilosophy').textContent = coach.philosophy;
+                
+                // Update stats
+                const statsContainer = document.getElementById('modalCoachStats');
+                statsContainer.innerHTML = '';
+                
+                coach.stats.forEach(stat => {
+                    const statItem = document.createElement('div');
+                    statItem.className = 'stat-item';
+                    statItem.innerHTML = `
+                        <div class="stat-value">${stat.value}</div>
+                        <div class="stat-label">${stat.label}</div>
+                    `;
+                    statsContainer.appendChild(statItem);
+                });
+                
+                // Show modal
+                coachModal.classList.add('active');
+            }
+        }
+        
+        // Sticky header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+    </script>
+</body>
+</html>
