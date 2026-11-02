@@ -18,7 +18,6 @@
             --transition: all 0.3s ease;
             --nav-green: #000000;
             --facilities-bg: #ffffff;
-            --gallery-bg: #ffffff;
         }
 
         * {
@@ -525,103 +524,6 @@
             line-height: 1.8;
         }
 
-        /* Gallery Section with geometric background - MODIFIED */
-        .gallery {
-            padding: 5rem 5%;
-            position: relative;
-            background-color: var(--gallery-bg);
-        }
-
-        .gallery-categories {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2.5rem;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
-        }
-
-        .category-btn {
-            background: var(--white);
-            border: 2px solid var(--primary-green);
-            color: var(--primary-green);
-            padding: 0.7rem 1.5rem;
-            margin: 0 0.5rem 1rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: 500;
-        }
-
-        .category-btn.active, .category-btn:hover {
-            background: var(--primary-green);
-            color: var(--white);
-        }
-
-        .gallery-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.8rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .gallery-item {
-            border-radius: 10px;
-            overflow: hidden;
-            height: 280px;
-            position: relative;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            background: var(--white);
-            border: 1px solid rgba(47, 94, 61, 0.1);
-            opacity: 0;
-            transform: translateY(20px);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .gallery-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .gallery-img {
-            height: 220px;
-            overflow: hidden;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .gallery-caption {
-            padding: 10px 15px;
-            background: var(--white);
-            font-size: 0.9rem;
-            color: var(--dark-gray);
-            text-align: center;
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
         /* Enhanced Footer Styles */
         .footer {
             background:  #2F5E3D;
@@ -907,17 +809,6 @@
                 font-size: 2rem;
             }
             
-            .gallery-container {
-                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            }
-            
-            .gallery-item {
-                height: 250px;
-            }
-            
-            .gallery-img {
-                height: 190px;
-            }
         }
 
         @media (max-width: 576px) {
@@ -937,14 +828,6 @@
                 height: 60px;
             }
             
-            .gallery-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .category-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
         }
     </style>
 </head>
@@ -960,7 +843,7 @@
                 <li class="nav-item"><a href="#slider" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
                 <li class="nav-item"><a href="#facilities" class="nav-link"><i class="fas fa-dumbbell"></i> Facilities</a></li>
                 <li class="nav-item"><a href="#about" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
-                <li class="nav-item"><a href="#gallery" class="nav-link"><i class="fas fa-images"></i> Gallery</a></li>
+                <li class="nav-item"><a href="gallery.html" class="nav-link"><i class="fas fa-images"></i> Gallery</a></li>
                 <li class="nav-item">
                     <a href="#" class="nav-link contact-trigger"><i class="fas fa-phone"></i> Contact</a>
                     <div class="contact-dropdown">
@@ -1018,7 +901,7 @@
         </div>
         
         <!-- Slide 3: Join Our Community (Different image) -->
-        <div class="slide" style="background-image: url('gallery/code1.jpg');">
+        <div class="slide" style="background-image: url('gallery/code1');">
             <div class="slide-content">
                 <h2>Join Our Community</h2>
                 <p>Experience the joy of playing together</p>
@@ -1152,69 +1035,6 @@
         </div>
     </section>
 
-    <!-- Gallery Section with geometric background - MODIFIED -->
-    <section id="gallery" class="gallery geometric-bg">
-        <div class="section-title">
-            <h2>Gallery</h2>
-        </div>
-        <div class="gallery-categories">
-            <button class="category-btn active" data-category="all">History</button>
-            <button class="category-btn" data-category="courts">Courts</button>
-           
-            <button class="category-btn" data-category="events">Events</button>
-        </div>
-        <div class="gallery-container">
-            <div class="gallery-item" data-category="courts" data-url="court-details.html">
-                <div class="gallery-img">
-                    <img src="gallery/code1.jpg" alt="Court View">
-                </div>
-                <div class="gallery-caption">Professional badminton courts with international standards</div>
-            </div>
-            <div class="gallery-item" data-category="equipment" data-url="equipment-details.html">
-                <div class="gallery-img">
-                    <img src="gallery/code2.jpeg" alt="Equipment">
-                </div>
-                <div class="gallery-caption">High-quality rackets and shuttlecocks for rent</div>
-            </div>
-            <div class="gallery-item" data-category="events" data-url="coaching-details.html">
-                <div class="gallery-img">
-                    <img src="gallery/code3.jpg" alt="Coaching Session">
-                </div>
-                <div class="gallery-caption">Professional coaching sessions for all skill levels</div>
-            </div>
-            <div class="gallery-item" data-category="events" data-url="tournament-details.html">
-                <div class="gallery-img">
-                    <img src="gallery/equ1.jpg" alt="Tournament">
-                </div>
-                <div class="gallery-caption">Exciting tournaments and competitive events</div>
-            </div>
-            <div class="gallery-item" data-category="courts" data-url="player-details.html">
-                <div class="gallery-img">
-                    <img src="gallery/equ2.jpg" alt="Player Smashing">
-                </div>
-                <div class="gallery-caption">Players showcasing their skills and techniques</div>
-            </div>
-            <div class="gallery-item" data-category="courts" data-url="player-details.html">
-                <div class="gallery-img">
-                    <img src="gallery/eve1.jpg" alt="Player Reaction">
-                </div>
-                <div class="gallery-caption">Intense moments during competitive matches</div>
-            </div>
-            <div class="gallery-item" data-category="equipment" data-url="equipment-details.html">
-                <div class="gallery-img">
-                    <img src="gallery/eve2.jpg" alt="Rackets">
-                </div>
-                <div class="gallery-caption">Premium equipment selection for serious players</div>
-            </div>
-            <div class="gallery-item" data-category="events" data-url="event-details.html">
-                <div class="gallery-img">
-                    <img src="gallery/eve3.jpg" alt="Championship">
-                </div>
-                <div class="gallery-caption">Championship events with professional organization</div>
-            </div>
-        </div>
-    </section>
-
     <!-- Enhanced Footer -->
     <footer class="footer">
         <div class="footer-container">
@@ -1249,7 +1069,7 @@
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Facilities</a></li>
                     <li><a href="#">Coaches</a></li>
-                    <li><a href="#">Gallery</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </div>
@@ -1415,62 +1235,7 @@
             });
         });
         
-        // Gallery category filtering
-        const categoryButtons = document.querySelectorAll('.category-btn');
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        
-        categoryButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                categoryButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                button.classList.add('active');
-                
-                const category = button.getAttribute('data-category');
-                
-                // Filter gallery items
-                galleryItems.forEach(item => {
-                    const itemCategory = item.getAttribute('data-category');
-                    
-                    if (category === 'all' || category === itemCategory) {
-                        item.style.display = 'flex';
-                        // Add animation
-                        setTimeout(() => {
-                            item.classList.add('visible');
-                        }, 50);
-                    } else {
-                        item.classList.remove('visible');
-                        setTimeout(() => {
-                            item.style.display = 'none';
-                        }, 300);
-                    }
-                });
-            });
-        });
-        
-        // Initialize gallery items with animation
-        function initGalleryAnimation() {
-            galleryItems.forEach((item, index) => {
-                setTimeout(() => {
-                    item.classList.add('visible');
-                }, index * 100);
-            });
-        }
-        
-        // Open new page when gallery item is clicked
-        galleryItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const url = item.getAttribute('data-url');
-                if (url) {
-                    window.open(url, '_blank');
-                }
-            });
-        });
-        
-        // Initialize when page loads
         window.addEventListener('DOMContentLoaded', () => {
-            initGalleryAnimation();
-            
             // Update WhatsApp link with your actual group link
             const whatsappLink = document.querySelector('.whatsapp-icon');
             if (whatsappLink) {
